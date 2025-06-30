@@ -1,68 +1,68 @@
 package com.bank.models;
 
-import com.bank.models.enums.TipoConta;
+import com.bank.models.enums.TypeAccount;
 
-public class Conta {
-    private int numeroConta;
-    private double saldo;
-    private Cliente cliente;
-    private TipoConta tipoConta;
+public class Account {
+    private int numberAccount;
+    private double balance;
+    private Client client;
+    private TypeAccount typeAccount;
 
-    public Conta(int numeroConta, Cliente cliente, TipoConta tipoConta) {
-        this.numeroConta = numeroConta;
-        this.saldo = 0.0;
-        this.cliente = cliente;
-        this.tipoConta = tipoConta;
+    public Account(int numberAccount, Client client, TypeAccount typeAccount) {
+        this.numberAccount = numberAccount;
+        this.balance = 0.0;
+        this.client = client;
+        this.typeAccount = typeAccount;
     }
 
-    public void depositar(Conta conta, double valor) {
+    public void deposit(Account account, double valor) {
         if (valor <= 0) {
             throw new IllegalArgumentException("Valor inválido para depósito. O valor deve ser maior que 0.");
         }
-        saldo += valor;
+        balance += valor;
         System.out.println("Depósito de R$" + valor + " realizado com sucesso.");
     }
 
-    public void sacar(double valor) {
-        if (valor <= 0) {
+    public void sake(double value) {
+        if (value <= 0) {
             throw new IllegalArgumentException("Valor inválido para saque. O valor deve ser maior que 0.");
         }
-        if (valor > saldo) {
+        if (value > balance) {
             throw new RuntimeException("Saldo insuficiente para saque.");
         }
-        saldo -= valor;
-        System.out.println("Saque de R$" + valor + " realizado com sucesso.");
+        balance -= value;
+        System.out.println("Saque de R$" + value + " realizado com sucesso.");
     }
 
     // Getters
-    public int getNumeroConta() {
-        return numeroConta;
+    public int getNumberAccount() {
+        return numberAccount;
     }
 
-    public double getSaldo() {
-        return saldo;
+    public double getBalance() {
+        return balance;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Client getClient() {
+        return client;
     }
 
-    public TipoConta getTipoConta() {
-        return tipoConta;
+    public TypeAccount getTypeAccount() {
+        return typeAccount;
     }
 
     //Setters
-    public void setNumeroConta(int numeroConta) {
-        this.numeroConta = numeroConta;
+    public void setNumberAccount(int numeroConta) {
+        this.numberAccount = numeroConta;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
 
-    public void setTipoConta(TipoConta tipoConta) {
-        this.tipoConta = tipoConta;
+    public void setTypeAccount(TypeAccount typeAccount) {
+        this.typeAccount = typeAccount;
     }
 
 

@@ -2,26 +2,26 @@ package com.bank.models;
 
 import java.util.List;
 
-public class Cliente {
-    private String nome;
+public class Client {
+    private String name;
     private String cpf;
-    private String endereco;
-    private String numeroDeTelefone;
-    private List<Conta> contas;
+    private String adress;
+    private String numberCellphone;
+    private List<Account> accounts;
 
-    public Cliente(){}
+    public Client(){}
 
-    public Cliente(String nome, String cpf, String numeroDeTelefone, String endereco, List<Conta> contas){
-        this.nome = nome;
+    public Client(String name, String cpf, String numberCellphone, String adress, List<Account> accounts){
+        this.name = name;
         this.cpf = cpf;
-        this.numeroDeTelefone = numeroDeTelefone;
-        this.endereco = endereco;
-        this.contas = contas;
+        this.numberCellphone = numberCellphone;
+        this.adress = adress;
+        this.accounts = accounts;
     }
 
     // Getters
     public String getNome() {
-        return nome;
+        return name;
     }
 
     public String getCpf() {
@@ -29,19 +29,19 @@ public class Cliente {
     }
 
     public String getEndereco() {
-        return endereco;
+        return adress;
     }
 
     public String getNumeroDeTelefone() {
-        return numeroDeTelefone;
+        return numberCellphone;
     }
-    public List<Conta> getcontas(){
-        return contas;
+    public List<Account> getcontas(){
+        return accounts;
     }
 
     // Setters
     public void setNome(String nome){
-        this.nome = nome;
+        this.name = nome;
     }
 
     public void setCpf(String cpf){
@@ -49,24 +49,24 @@ public class Cliente {
     }
 
     public void setEndereco(String endereco){
-        this.endereco = endereco;
+        this.adress = endereco;
     }
 
     public void setNumeroDeTelefone(String numeroDeTelefone){
-        this.numeroDeTelefone = numeroDeTelefone;
+        this.numberCellphone = numeroDeTelefone;
     }
 
-    public void setContas(List<Conta> contas) {
-        this.contas = contas;
+    public void setContas(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     @Override
     public String toString(){
         return "Cliente{" +
-                "NOME='" + nome + '\'' +
+                "NOME='" + name + '\'' +
                 ",CPF='" + cpf + '\'' +
-                ",ENDEREÇO='" + endereco + '\'' +
-                ",NÚMERO DE TELEFONE='" + numeroDeTelefone + '\'' +
+                ",ENDEREÇO='" + adress + '\'' +
+                ",NÚMERO DE TELEFONE='" + numberCellphone + '\'' +
                 '}';
     }
 }
