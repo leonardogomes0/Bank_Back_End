@@ -1,4 +1,4 @@
-package com.bank.entites;
+package com.bank.models;
 
 import java.util.List;
 
