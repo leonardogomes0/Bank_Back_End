@@ -12,6 +12,8 @@ public class Account {
     private double balance;
     private String typeAccount;
 
+    public Account() {
+    }
 
     public Account(String titularName, String cpf, String numberCellphone, String adress, String typeAccount) {
         this.titularName = titularName;
@@ -19,20 +21,16 @@ public class Account {
         this.numberCellphone = numberCellphone;
         this.adress = adress;
         this.typeAccount = typeAccount;
+        this.balance = 0.0;
     }
 
-    public void displayBalance(){
-        System.out.println("""
-                ----------------------
-                    SALDO EM CONTA
-                ---------------------    
-                R$""" + balance);    }
 
     public void deposit(double amount){
         if (amount < 0){
             throw new IllegalArgumentException("Valor deve ser maior que 0");
         }
         balance += amount;
+        System.out.println("Depósito feito com sucesso!");
     }
 
     public void withdrawn(double amount){
@@ -43,5 +41,6 @@ public class Account {
             throw new IllegalArgumentException("O valor não pode ser menor que 0");
         }
         balance -= amount;
+        System.out.println("Saque feito com sucesso!");
     }
 }
