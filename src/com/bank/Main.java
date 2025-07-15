@@ -2,6 +2,7 @@ package com.bank;
 
 import com.bank.models.entites.Account;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 
@@ -38,7 +39,7 @@ public class Main {
 
 
         int userOption;
-        double amount;
+        BigDecimal amount;
 
         while (true) {
 
@@ -51,15 +52,19 @@ public class Main {
                     continue;
                 case 2:
                     viewer.showMessage("\nDigite o valor que deseja depositar:");
-                    amount = scanner.nextDouble();
+                    amount = scanner.nextBigDecimal();
                     account.deposit(amount);
                     continue;
                 case 3:
                     viewer.showMessage("\nDigite o valor que deseja sacar:");
-                    amount = scanner.nextDouble();
+                    amount = scanner.nextBigDecimal();
                     account.withdrawn(amount);
                     continue;
+                case 4:
+                    viewer.displayDataAccount(account);
+                    continue;
                 case 0:
+                    viewer.showMessage("...Finalizando sistema");
                     return;
                 default:
                     viewer.showMessage("ERRO: Valor não listado");
