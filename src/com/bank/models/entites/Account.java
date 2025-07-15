@@ -1,46 +1,46 @@
 package com.bank.models.entites;
 
-
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
+
 public class Account {
-    private String titularName;
+    private String holdersName;
     private String cpf;
     private String numberCellphone;
-    private String adress;
-    private double balance;
+    private String address;
+    private BigDecimal balance = new BigDecimal(0);
     private String typeAccount;
 
     public Account() {
     }
 
-    public Account(String titularName, String cpf, String numberCellphone, String adress, String typeAccount) {
-        this.titularName = titularName;
+    public Account(String titularName, String cpf, String numberCellphone, String address, String typeAccount) {
+        this.holdersName = titularName;
         this.cpf = cpf;
         this.numberCellphone = numberCellphone;
-        this.adress = adress;
+        this.address = address;
         this.typeAccount = typeAccount;
-        this.balance = 0.0;
     }
 
-
-    public void deposit(double amount){
-        if (amount < 0){
+    public void deposit(BigDecimal amount){
+        if (amount.signum() <= 0){
             throw new IllegalArgumentException("Valor deve ser maior que 0");
         }
-        balance += amount;
+        balance = balance.add(amount);
         System.out.println("Depósito feito com sucesso!");
     }
 
-    public void withdrawn(double amount){
-        if (amount > balance){
+    public void withdrawn(BigDecimal amount){
+        if (amount.compareTo(balance) > 0){
             throw new IllegalArgumentException("Valor de saque inválido");
         }
-        if (amount < 0){
+        if (amount.signum() < 0){
             throw new IllegalArgumentException("O valor não pode ser menor que 0");
         }
-        balance -= amount;
+        balance = balance.subtract(amount);
         System.out.println("Saque feito com sucesso!");
     }
 }
